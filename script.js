@@ -15,7 +15,7 @@ async function fetchGlobalAirQuality() {
         const response = await fetch(`https://api.airvisual.com/v2/cities?state=California&country=USA&key=${API_KEY}`);
         const data = await response.json();
 
-        // For demonstration, let's assume we get an array of cities
+        //array of cities?
         const cities = data.data;
 
         cities.forEach(async (city) => {
@@ -49,7 +49,7 @@ async function fetchMostPollutedCities() {
         const data = await response.json();
 
         // Sort cities by AQI in descending order (assuming data structure allows)
-        const cities = data.data; // Replace with actual data path
+        const cities = data.data; // Replace with correct data path
         cities.sort((a, b) => b.current.pollution.aqius - a.current.pollution.aqius);
 
         // Get top 5 most polluted cities
@@ -80,3 +80,5 @@ function getColor(aqi) {
 // Fetch data when the page loads
 fetchGlobalAirQuality();
 fetchMostPollutedCities();
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> 
