@@ -1,5 +1,5 @@
 //IQAir API key
-const API_KEY = 'https://api.airvisual.com/v2/city?city=Los%20Angeles&state=California&country=USA&key=c9714521-7f63-4ad7-a0ae-6898a2c2e4c7';
+const API_KEY = 'c9714521-7f63-4ad7-a0ae-6898a2c2e4c7';
 
 // Initialize the map
 const map = L.map('map').setView([20, 0], 2);
