@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Air Quality Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="help.html">Help</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <h1>Air Quality Dashboard</h1>
+
+    <!-- Local Air Quality Section -->
+    <section id="local-air">
+        <h2>Your Local Air Quality</h2>
+        <div id="local-data">Loading your local air quality...</div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search-air">
+        <h2>Search for Air Quality in Other Cities</h2>
+        <input type="text" id="city-input" placeholder="Enter a city name">
+        <button id="search-btn">Search</button>
+        <div id="search-results"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

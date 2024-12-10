@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="help.html">Help</a>
+        <a href="local.html">Local Air</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <h2>We'd love to hear from you!</h2>
+        <p>Please fill out the form below to send us your inquiry:</p>
+
+        <!-- Contact Form -->
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+
+            <button type="button" id="submit-btn">Send Message</button>
+        </form>
+
+        <!-- Success -->
+        <div id="success-message" style="display: none; color: green; margin-top: 10px;">
+            Thank you for your message! We'll get back to you soon.
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function () {
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Validate inputs
+            if (name && email && message) {
+                // Simulate form submission
+                console.log('Name:', name);
+                console.log('Email:', email);
+                console.log('Message:', message);
+
+                // Display success message
+                document.getElementById('success-message').style.display = 'block';
+
+                // Clear form fields
+                document.getElementById('contact-form').reset();
+            } else {
+                alert('Please fill out all fields.');
+            }
+        });
+    </script>
+</body>
+</html>
