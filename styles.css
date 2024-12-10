@@ -184,3 +184,11 @@ footer a:hover {
     background-color: #16a085; /* Slightly darker green */
 }
 
+.aboutProject, .helpInfo {
+    margin: 15px;
+    text-align: center;
+}
+
+.AQILevels {
+    margin-left: 15px;
+}
