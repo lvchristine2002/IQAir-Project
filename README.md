@@ -130,6 +130,31 @@ Returns this data:
 - Air quality index: Air Quality Index (AQI)
 - Temperature: Temperature (in celsius)
 
+3. GET List supported cities in a state
+
+This returns specific cities in a state that have available data. 
+
+url: http://api.airvisual.com/v2/cities?state={{STATE_NAME}}&country={{COUNTRY_NAME}}&key={{YOUR_API_KEY}}
+
+Example request: 
+curl --location -g 'http://api.airvisual.com/v2/cities?state=New%20York&country=USA&key={{YOUR_API_KEY}}'
+
+Example response: 
+{
+  "status": "success",
+  "data": [
+    {
+      "city": "Addison"
+    },
+    {
+      "city": "Albany"
+    },
+    {
+      "city": "Buffalo"
+    }
+  ]
+}
+
 
 #### Bugs and Future Devlopment 
 
