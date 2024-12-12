@@ -31,7 +31,10 @@ async function fetchLocalAirQuality() {
 
 // Function to fetch air quality for a user-searched city
 async function searchCityAirQuality() {
-    const cityInput = document.getElementById('city-input').value.trim();
+    let cityInput = document.getElementById('city-input').value.trim();
+
+    let stateInput = document.getElementById('state-input').value.trim();
+    stateInput = stateInput.toUpperCase();
     const searchResults = document.getElementById('search-results');
 
     if (cityInput === '') {
@@ -39,11 +42,31 @@ async function searchCityAirQuality() {
         return;
     }
 
+    if (stateInput === '') {
+        searchResults.textContent = 'Please enter a state name.';
+        return;
+    }
+
+    const cityList = await fetch(`http://api.airvisual.com/v2/cities?state=${stateInput}&country=USA&key=48de2601-ac97-45bb-b04b-3eca74e7f077`);
+    const data= await cityList.json();
+    console.log("State list: ", data);
+    
+    //potential validation for city input
+    let i=0;
+    while (i<data.data.length){
+        if (cityInput==data.data[i].city){
+            break;
+           }
+        else
+            i++;
+    }
+
+
     searchResults.textContent = 'Searching...';
 
     try {
         // Fetch data for the searched city
-        const response = await fetch(`https://api.airvisual.com/v2/city?city=${cityInput}&state=&country=&key=${API_KEY}`);
+        const response = await fetch(`https://api.airvisual.com/v2/city?city=${cityInput}&state=${stateInput}&country=USA&key=${API_KEY}`);
         const data = await response.json();
 
         if (data.status !== 'success') {
@@ -63,7 +86,7 @@ async function searchCityAirQuality() {
         console.error('Error fetching city air quality:', error);
         searchResults.textContent = 'Error loading data. Please try again later.';
     }
-}
+ }
 
 // Event listener for the search button
 document.getElementById('search-btn').addEventListener('click', searchCityAirQuality);
