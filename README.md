@@ -163,4 +163,4 @@ Example response:
 - Bug #2: Map issues might not load in some browsers
 
 - Development #1: Include more weather APIs that feature more weather updates that a user can access if they want  including: cloud updates, rain/storm updates, snow updates, uv index, etc. 
-
+- Development #2: Include an interactive map so users can simply click on their desired location and get information that way
