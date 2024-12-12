@@ -29,6 +29,49 @@ async function fetchLocalAirQuality() {
     }
 }
 
+// Event listener for state input to trigger city fetching
+document.getElementById('state-input').addEventListener('input', function() {
+    const stateInput = this.value.trim().toUpperCase(); 
+    
+    if (stateInput) {
+        fetchCitiesInState(stateInput);  
+    } else {
+        document.getElementById('city-dropdown').style.display = 'none'; 
+    }
+});
+
+// Function to fetch list of cities in a given state
+async function fetchCitiesInState(state, country = "USA") {
+    const cityDropdown = document.getElementById('city-dropdown');
+    cityDropdown.innerHTML = "<option value=''>Select a city</option>"; 
+
+    try {
+        const response = await fetch(`http://api.airvisual.com/v2/cities?state=${state}&country=${country}&key=${API_KEY}`);
+        const data = await response.json();
+
+        if (data.status !== 'success') {
+            cityDropdown.style.display = 'none';
+            return;
+        }
+
+        // Populate city dropdown with the list of cities
+        data.data.forEach(city => {
+            const option = document.createElement('option');
+            option.value = city.city;
+            option.textContent = city.city;
+            cityDropdown.appendChild(option);
+        });
+
+        
+        cityDropdown.style.display = 'block';
+
+    } catch (error) {
+        console.error('Error fetching cities:', error);
+        cityDropdown.style.display = 'none'; 
+    }
+}
+
+
 // Function to fetch air quality for a user-searched city
 async function searchCityAirQuality() {
     let cityInput = document.getElementById('city-input').value.trim();
