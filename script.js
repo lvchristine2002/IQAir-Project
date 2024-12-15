@@ -43,7 +43,7 @@ document.getElementById('state-input').addEventListener('input', function() {
 // Function to fetch list of cities in a given state
 async function fetchCitiesInState(state, country = "USA") {
     const cityDropdown = document.getElementById('city-dropdown');
-    cityDropdown.innerHTML = "<option value=''>Select a city</option>"; 
+    cityDropdown.innerHTML = "<option value=''>List of cities available in the selected state</option>"; 
 
     try {
         const response = await fetch(`http://api.airvisual.com/v2/cities?state=${state}&country=${country}&key=${API_KEY}`);

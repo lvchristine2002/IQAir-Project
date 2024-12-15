@@ -155,10 +155,20 @@ Example response:
   ]
 }
 
+4. GET air quality 
+
+Searches the city's air quality 
+
+url: http://api.airvisual.com/v2/cities?state=${stateInput}&country=USA&key=48de2601-ac97-45bb-b04b-3eca74e7f077
+
+Example request: 
+
+
+
 
 #### Bugs and Future Devlopment 
 
-- Bug #1: The data can lag and may say it is not available. Have to wait or refresh page so that the information is accurate and loads. 
+- Bug #1: The data can lag and may say it is not available when you are searching for other cities. Have to wait or refresh page so that the information is accurate and loads. 
 - Bug #2: Location might not be accurate, might be delays with API or outdated data
 - Bug #2: Map issues might not load in some browsers
 
