@@ -93,16 +93,6 @@ async function searchCityAirQuality() {
     const cityList = await fetch(`http://api.airvisual.com/v2/cities?state=${stateInput}&country=USA&key=48de2601-ac97-45bb-b04b-3eca74e7f077`);
     const data= await cityList.json();
     console.log("State list: ", data);
-    
-    //potential validation for city input
-    let i=0;
-    while (i<data.data.length){
-        if (cityInput==data.data[i].city){
-            break;
-           }
-        else
-            i++;
-    }
 
 
     searchResults.textContent = 'Searching...';
