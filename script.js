@@ -29,7 +29,6 @@ async function fetchLocalAirQuality() {
     }
 }
 
-// Event listener for state input to trigger city fetching
 document.getElementById('state-input').addEventListener('input', function() {
     const stateInput = this.value.trim().toUpperCase(); 
     
@@ -54,7 +53,7 @@ async function fetchCitiesInState(state, country = "USA") {
             return;
         }
 
-        // Populate city dropdown with the list of cities
+        // City dropdown with the list of cities
         data.data.forEach(city => {
             const option = document.createElement('option');
             option.value = city.city;
