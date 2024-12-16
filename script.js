@@ -45,7 +45,7 @@ async function fetchCitiesInState(state, country = "USA") {
     cityDropdown.innerHTML = "<option value=''>List of cities available in the selected state</option>"; 
 
     try {
-        const response = await fetch(`http://api.airvisual.com/v2/cities?state=${state}&country=${country}&key=${API_KEY}`);
+        const response = await fetch(`https://api.airvisual.com/v2/cities?state=${state}&country=${country}&key=${API_KEY}`);
         const data = await response.json();
 
         if (data.status !== 'success') {
@@ -89,7 +89,7 @@ async function searchCityAirQuality() {
         return;
     }
 
-    const cityList = await fetch(`http://api.airvisual.com/v2/cities?state=${stateInput}&country=USA&key=48de2601-ac97-45bb-b04b-3eca74e7f077`);
+    const cityList = await fetch(`https://api.airvisual.com/v2/cities?state=${stateInput}&country=USA&key=48de2601-ac97-45bb-b04b-3eca74e7f077`);
     const data= await cityList.json();
     console.log("State list: ", data);
 
